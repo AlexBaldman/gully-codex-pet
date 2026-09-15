@@ -1,0 +1,19 @@
+# Pet sprite sheet (large file, add when generated)
+pets/gully/gully-spritesheet.png
+pets/gully/*.png
+pets/gully/*.webp
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp

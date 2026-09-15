@@ -1,0 +1,36 @@
+{
+  "name": "gully",
+  "displayName": "Good Golly He's Gully",
+  "description": "A thugged-out beach bum seagull with sunglasses, gold chain, and laid-back attitude. Perfect companion for bringing beach vibes to your coding sessions.",
+  "author": "Alex Baldman",
+  "version": "1.0.0",
+  "style": "pixel",
+  "category": "animals",
+  "tags": ["seagull", "beach", "pixel-art", "surf", "laid-back"],
+  "states": {
+    "idle": {
+      "description": "Relaxed standing with sunglasses on and subtle smoking"
+    },
+    "working": {
+      "description": "Dynamic pose with active smoking and alert posture"
+    },
+    "needs_input": {
+      "description": "Leaning forward with sunglasses down, questioning gaze"
+    },
+    "blocked": {
+      "description": "Frustrated with drooped wings and joint gone out"
+    },
+    "success": {
+      "description": "Celebratory pose with wings spread and toast"
+    }
+  },
+  "colors": {
+    "primary": "#123b8d",
+    "secondary": "#ff25b8",
+    "accent": "#72e4d2",
+    "highlight": "#fff66e"
+  },
+  "compatibility": ["codex", "claude-code"],
+  "license": "MIT",
+  "repository": "https://github.com/AlexBaldman/gully-codex-pet"
+}

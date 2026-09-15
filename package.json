@@ -1,0 +1,38 @@
+{
+  "name": "gully-codex-pet",
+  "version": "1.0.0",
+  "description": "Good Golly He's Gully - A thugged-out beach bum seagull companion for OpenAI Codex",
+  "main": "pets/gully/pet.json",
+  "scripts": {
+    "install": "mkdir -p ~/.codex/pets && cp -R pets/gully ~/.codex/pets/",
+    "test": "echo \"Run manual testing in Codex to verify pet functionality\"",
+    "preview": "echo \"Open pets/gully/ to view pet files\""
+  },
+  "keywords": [
+    "codex",
+    "pet",
+    "seagull",
+    "pixel-art",
+    "animated",
+    "desktop-companion",
+    "beach-bum"
+  ],
+  "author": "Alex Baldman",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AlexBaldman/gully-codex-pet.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AlexBaldman/gully-codex-pet/issues"
+  },
+  "homepage": "https://github.com/AlexBaldman/gully-codex-pet#readme",
+  "pet": {
+    "name": "Good Golly He's Gully",
+    "style": "pixel",
+    "states": 5,
+    "format": "spritesheet",
+    "grid": "8x9",
+    "cellSize": "192x208"
+  }
+}

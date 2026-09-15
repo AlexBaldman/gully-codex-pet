@@ -1,0 +1,19 @@
+# SPRITE SHEET PLACEHOLDER
+
+This file will be replaced with the actual Gully sprite sheet once generated.
+
+## Generation Instructions
+
+1. Use the prompts in `art-prompts.md` to generate character art in Codex
+2. Assemble frames into an 8x9 sprite sheet using hatch-pet skill
+3. Replace this placeholder file with `gully-spritesheet.png`
+4. The sprite sheet should be 1536x1872 pixels (8 columns × 9 rows, 192×208px cells)
+
+## Current Status
+
+🔲 **AWAITING GENERATION** - Character art not yet generated
+
+## Once Generated
+
+Remove this `.placeholder` extension and ensure the file is named exactly:
+`gully-spritesheet.png`
