@@ -5,8 +5,12 @@
   "main": "pets/gully/pet.json",
   "scripts": {
     "install": "mkdir -p ~/.codex/pets && cp -R pets/gully ~/.codex/pets/",
-    "test": "echo \"Run manual testing in Codex to verify pet functionality\"",
-    "preview": "echo \"Open pets/gully/ to view pet files\""
+    "generate": "./scripts/generate-gully.sh",
+    "assemble": "./scripts/assemble-spritesheet.sh",
+    "validate": "./scripts/validate-spritesheet.sh",
+    "install-pet": "./scripts/install-pet.sh",
+    "test": "./scripts/test-pet.sh",
+    "full-workflow": "./scripts/generate-gully.sh && ./scripts/assemble-spritesheet.sh && ./scripts/validate-spritesheet.sh && ./scripts/install-pet.sh && ./scripts/test-pet.sh"
   },
   "keywords": [
     "codex",
@@ -15,7 +19,9 @@
     "pixel-art",
     "animated",
     "desktop-companion",
-    "beach-bum"
+    "beach-bum",
+    "long-beach",
+    "90s-nostalgia"
   ],
   "author": "Alex Baldman",
   "license": "MIT",

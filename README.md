@@ -26,19 +26,33 @@ Gully is a custom animated desktop pet for OpenAI Codex featuring a laid-back be
 
 ## 📦 Installation
 
-### Quick Install via Petdex
+### Prerequisites
 
-```bash
-npx petdex install gully
-```
+- **ImageMagick** (for sprite assembly): `brew install imagemagick`
+- **Codex desktop app** (for pet usage)
+- **AI image generation access** (DALL-E, Midjourney, or similar)
 
-### Manual Install
+### Quick Start Workflow
 
 ```bash
 # Clone this repository
 git clone https://github.com/AlexBaldman/gully-codex-pet.git
 cd gully-codex-pet
 
+# Run the complete workflow (if you have the sprite sheet ready)
+npm run full-workflow
+
+# Or step-by-step:
+npm run generate    # Get prompts for AI generation
+npm run assemble    # Assemble frames into sprite sheet
+npm run validate    # Validate technical requirements
+npm run install-pet # Install to Codex
+npm run test        # Test the installation
+```
+
+### Manual Install (If You Have the Sprite Sheet)
+
+```bash
 # Copy to Codex pets directory
 mkdir -p ~/.codex/pets
 cp -R pets/gully ~/.codex/pets/
@@ -46,7 +60,7 @@ cp -R pets/gully ~/.codex/pets/
 # Open Codex, go to Settings > Pets, click Refresh, and select Gully
 ```
 
-### Activate
+### Activate in Codex
 
 Once installed:
 1. Open Codex desktop app
@@ -83,9 +97,34 @@ Gully responds with beach bum slang and laid-back reactions:
 
 ## 🔧 Development
 
+### Quick Start Workflow
+
+```bash
+# 1. Generate character art using AI tools
+npm run generate
+
+# 2. Assemble individual frames into sprite sheet
+npm run assemble
+
+# 3. Validate the sprite sheet meets requirements
+npm run validate
+
+# 4. Install pet to Codex
+npm run install-pet
+
+# 5. Test the installation
+npm run test
+
+# Or run the complete workflow:
+npm run full-workflow
+```
+
 ### Character Art Generation
 
-See `art-prompts.md` for detailed prompts to generate Gully's character art using AI image generation tools.
+See `pets/gully/art-prompts.md` for detailed prompts to generate Gully's character art using AI image generation tools. The prompts are optimized for:
+- **DALL-E 3** - Maximum detail and character accuracy
+- **Midjourney** - Artistic style and aesthetic control
+- **Stable Diffusion** - Technical precision and local generation
 
 ### File Structure
 
@@ -94,10 +133,19 @@ gully-codex-pet/
 ├── pets/
 │   └── gully/
 │       ├── pet.json              # Pet configuration
-│       ├── gully-spritesheet.png # Animation sprite sheet
-│       ├── art-prompts.md        # Generation prompts
-│       └── INSTALLATION_GUIDE.md # Setup instructions
+│       ├── gully-spritesheet.png # Animation sprite sheet (to be generated)
+│       ├── art-prompts.md        # Enhanced generation prompts with full character vision
+│       ├── GULLY_LORE.md         # Complete character backstory and narrative
+│       ├── INSTALLATION_GUIDE.md # Detailed setup instructions
+│       └── IMPLEMENTATION_SUMMARY.md # Technical overview
+├── scripts/
+│   ├── generate-gully.sh        # Generation workflow helper
+│   ├── assemble-spritesheet.sh  # Sprite sheet assembly automation
+│   ├── validate-spritesheet.sh  # Technical validation
+│   ├── install-pet.sh           # Installation automation
+│   └── test-pet.sh              # Installation testing
 ├── README.md
+├── CONTRIBUTING.md
 ├── LICENSE
 └── .gitignore
 ```
