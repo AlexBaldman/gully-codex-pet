@@ -2,6 +2,8 @@
 
 **An animated, gold-chained beach-bum seagull companion for Codex.**
 
+![Gully animated showcase — nine-state pixel-art pet](assets/gully-showcase.gif)
+
 Devin's original concept, personality, and lore remain in `pets/gully/`. This upgrade replaces the placeholder sprite art and broken install assumptions with a deterministic, dependency-free **nine-state / 57-frame** animated atlas, a neon beach preview, real package validation, and a cross-platform installer.
 
 ## Quick start (Node.js 20+)
