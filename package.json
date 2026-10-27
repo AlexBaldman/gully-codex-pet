@@ -1,44 +1,20 @@
 {
   "name": "gully-codex-pet",
-  "version": "1.0.0",
-  "description": "Good Golly He's Gully - A thugged-out beach bum seagull companion for OpenAI Codex",
-  "main": "pets/gully/pet.json",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Good Golly He's Gully – a working Codex pet with an animated neon-beach preview",
+  "engines": { "node": ">=20" },
   "scripts": {
-    "install": "mkdir -p ~/.codex/pets && cp -R pets/gully ~/.codex/pets/",
-    "generate": "./scripts/generate-gully.sh",
-    "assemble": "./scripts/assemble-spritesheet.sh",
-    "validate": "./scripts/validate-spritesheet.sh",
-    "install-pet": "./scripts/install-pet.sh",
-    "test": "./scripts/test-pet.sh",
-    "full-workflow": "./scripts/generate-gully.sh && ./scripts/assemble-spritesheet.sh && ./scripts/validate-spritesheet.sh && ./scripts/install-pet.sh && ./scripts/test-pet.sh"
+    "build": "node scripts/build-gully.mjs",
+    "generate": "npm run build",
+    "assemble": "npm run build",
+    "validate": "node scripts/validate-pet.mjs",
+    "install-pet": "node scripts/install-pet.mjs",
+    "preview": "node scripts/preview-server.mjs",
+    "test": "node --test",
+    "full-workflow": "npm run build && npm run validate && npm run install-pet && npm test"
   },
-  "keywords": [
-    "codex",
-    "pet",
-    "seagull",
-    "pixel-art",
-    "animated",
-    "desktop-companion",
-    "beach-bum",
-    "long-beach",
-    "90s-nostalgia"
-  ],
-  "author": "Alex Baldman",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/AlexBaldman/gully-codex-pet.git"
-  },
-  "bugs": {
-    "url": "https://github.com/AlexBaldman/gully-codex-pet/issues"
-  },
-  "homepage": "https://github.com/AlexBaldman/gully-codex-pet#readme",
-  "pet": {
-    "name": "Good Golly He's Gully",
-    "style": "pixel",
-    "states": 5,
-    "format": "spritesheet",
-    "grid": "8x9",
-    "cellSize": "192x208"
-  }
+  "repository": "https://github.com/AlexBaldman/gully-codex-pet"
 }

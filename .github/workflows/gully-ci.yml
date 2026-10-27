@@ -1,0 +1,22 @@
+name: Gully atlas checks
+on:
+  push:
+    branches: [main, 'feat/**']
+  pull_request:
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm run build
+      - run: npm run validate
+      - run: npm test
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gully-codex-pet
+          path: |
+            pets/gully/pet.json
+            pets/gully/spritesheet.png

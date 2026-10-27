@@ -1,0 +1,14 @@
+import { copyFile, mkdir } from 'node:fs/promises';
+import { execFileSync } from 'node:child_process';
+import { resolve, dirname } from 'node:path';
+import { homedir } from 'node:os';
+import { fileURLToPath } from 'node:url';
+import { build } from './build-gully.mjs';
+const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
+const source=resolve(root,'pets/gully');
+const dest=resolve(process.env.CODEX_HOME || resolve(homedir(),'.codex'),'pets/gully');
+await build(resolve(source,'spritesheet.png'));
+execFileSync(process.execPath,[resolve(root,'scripts/validate-pet.mjs')],{stdio:'inherit'});
+await mkdir(dest,{recursive:true});
+await Promise.all(['spritesheet.png','pet.json'].map(file=>copyFile(resolve(source,file),resolve(dest,file))));
+console.log(`🏖️ Gully is installed at ${dest}\nOpen Codex desktop → Settings → Pets → Refresh, then select Gully.`);
