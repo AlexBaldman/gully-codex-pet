@@ -1,7 +1,8 @@
-# Pet sprite sheet (large file, add when generated)
+# Final sprite sheets stay out of Git until the complete atlas is ready to publish.
 pets/gully/gully-spritesheet.png
-pets/gully/*.png
-pets/gully/*.webp
+pets/gully/gully-spritesheet.webp
+# Older camera-themed base remains in the working tree; its preserved copy is in archive/.
+pets/gully/gully-base-character.png
 
 # OS files
 .DS_Store

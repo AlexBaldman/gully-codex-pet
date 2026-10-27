@@ -1,84 +1,62 @@
 {
   "name": "Good Golly He's Gully",
-  "version": "1.0.0",
-  "description": "Thugged-out beach bum seagull with sunglasses, gold chain with illuminati pyramid eye pendant, holding rum and coke, and slowly smoking a joint",
-  "author": "Jeopardish Project",
+  "id": "gully",
+  "version": "2.0.0",
+  "description": "A laid-back Long Beach seagull with magenta sunglasses, a gold eye pendant, rum and cola, and beach-bum confidence.",
+  "author": "Alex Baldman",
   "style": "pixel",
-  "baseSize": "64x64",
+  "baseSize": "192x208",
   "palette": {
     "primary": "#123b8d",
-    "secondary": "#ff25b8", 
+    "secondary": "#ff25b8",
     "accent": "#72e4d2",
     "highlight": "#fff66e",
     "chromaKey": "#00FF00"
   },
   "character": {
-    "species": "seagull",
+    "species": "Western gull",
     "bodyColor": "white",
-    "wingColor": "grey",
-    "beakColor": "orange",
+    "wingColor": "medium gray with charcoal tips",
+    "beakColor": "orange-gold",
     "feetColor": "orange",
     "accessories": [
-      "black sunglasses",
-      "thick gold chain with illuminati pyramid eye pendant",
-      "rum and coke drink",
-      "joint (subtle smoking animation)"
+      "oversized magenta sunglasses worn low enough to show tired bloodshot eyes",
+      "thick gold chain with triangular pendant and a single eye",
+      "rocks glass of rum and cola with ice",
+      "hand-rolled joint at the beak"
     ],
-    "personality": "beach bum, laid-back, slightly disheveled, confident smirk, bloodshot eyes behind sunglasses"
+    "personality": "sun-baked, sly, shameless, dryly funny, and charmingly helpful"
+  },
+  "spriteSheet": {
+    "version": 2,
+    "columns": 8,
+    "rows": 11,
+    "cellWidth": 192,
+    "cellHeight": 208,
+    "width": 1536,
+    "height": 2288,
+    "chromaKey": "#00FF00"
   },
   "states": {
-    "idle": { 
-      "row": 0, 
-      "frames": 8, 
-      "speed": 200,
-      "description": "Relaxed standing pose, sunglasses on, subtle smoking wisps, occasionally sipping drink"
-    },
-    "working": { 
-      "row": 1, 
-      "frames": 8, 
-      "speed": 150,
-      "description": "More dynamic pose, wings slightly raised, active smoking, looking around faster"
-    },
-    "needs_input": { 
-      "row": 2, 
-      "frames": 8, 
-      "speed": 300,
-      "description": "Leaning forward, sunglasses pushed down showing bloodshot eyes, joint prominent, waiting for user"
-    },
-    "blocked": { 
-      "row": 3, 
-      "frames": 8, 
-      "speed": 250,
-      "description": "Drooped wings, disgruntled expression, joint gone out, chain hanging loose, frustrated"
-    },
-    "success": { 
-      "row": 4, 
-      "frames": 8, 
-      "speed": 400,
-      "description": "Celebratory pose, wings spread, toast with rum and coke, triumphant expression"
-    }
+    "idle": { "row": 0, "frames": 6, "purpose": "Calm resting, breathing, and blinking loop." },
+    "running-right": { "row": 1, "frames": 8, "purpose": "Rightward drag movement loop." },
+    "running-left": { "row": 2, "frames": 8, "purpose": "Leftward drag movement loop." },
+    "waving": { "row": 3, "frames": 4, "purpose": "Greeting or attention gesture." },
+    "jumping": { "row": 4, "frames": 5, "purpose": "Hover or playful jump." },
+    "failed": { "row": 5, "frames": 8, "purpose": "Blocked, failed, or cancelled reaction." },
+    "waiting": { "row": 6, "frames": 6, "purpose": "Waiting for approval, help, or user input." },
+    "running": { "row": 7, "frames": 6, "purpose": "Active task work or processing." },
+    "review": { "row": 8, "frames": 6, "purpose": "Ready or completed output review." }
   },
-  "animations": {
-    "smoking": {
-      "cycle": "slow smoke wisps rising, joint periodically goes out, new joint rolled and lit",
-      "timing": "every 30-45 seconds"
-    },
-    "drinking": {
-      "cycle": "occasional sips from rum and coke",
-      "timing": "every 20-30 seconds during idle"
-    },
-    "sunglasses": {
-      "action": "occasionally peaks over sunglasses with bloodshot eyes and smirk",
-      "timing": "random during idle and working states"
-    }
+  "lookDirections": {
+    "rows": [9, 10],
+    "framesPerRow": 8,
+    "clockwiseDegrees": [0, 22.5, 45, 67.5, 90, 112.5, 135, 157.5, 180, 202.5, 225, 247.5, 270, 292.5, 315, 337.5],
+    "zeroDirection": "up"
   },
-  "technical": {
-    "spriteSheet": "8x9 grid (8 columns x 9 rows)",
-    "cellSize": "192x208px",
-    "totalSize": "1536x1872px",
-    "backgroundColor": "#00FF00 (chroma key green)",
-    "transparency": "unused cells should be fully transparent"
+  "generation": {
+    "currentRun": "generation/2026-09-14",
+    "status": "incomplete; no final atlas has passed validation"
   },
-  "attribution": "Based on Jeopardish aesthetic and provided seagull sprite references",
-  "notes": "Character inspired by Really Long Beach seagull - thugged-out beach bum aesthetic with sunglasses, gold chain, and beach party vibes"
+  "attribution": "Character concept inspired by the Really Long Beach seagull and JeoPARODY host art."
 }

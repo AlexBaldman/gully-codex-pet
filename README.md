@@ -1,210 +1,36 @@
-# Gully - "Good Golly He's Gully" Seagull Codex Pet
+# Gully — “Good Golly He’s Gully”
 
-> A thugged-out beach bum seagull companion for your Codex workspace
+Gully is a pixel-art Western gull companion for Codex: a sun-baked Long Beach regular with magenta sunglasses, a gold eye pendant, a rum-and-cola, and a joint. This repository is the canonical project checkout and is kept in sync with [GitHub](https://github.com/AlexBaldman/gully-codex-pet).
 
-![Gully Pet Preview](https://img.shields.io/badge/pet-pixel%20art-blue) ![License](https://img.shields.io/badge/license-MIT-green) ![Codex Compatible](https://img.shields.io/badge/codex-compatible-orange)
+## Current project state
 
-Gully is a custom animated desktop pet for OpenAI Codex featuring a laid-back beach bum seagull with sunglasses, gold chain, and a relaxed attitude. He's the perfect companion for long coding sessions, bringing beach vibes to your workspace.
+The character design and animation work have advanced beyond the original five-state, 8×9 prototype described in older project files. The latest local run follows the current v2 layout: eight columns by eleven rows, with nine animation states and sixteen look directions. Its source art, prompts, generated strips, and row-level QA are preserved in [`pets/gully/generation/2026-09-14`](pets/gully/generation/2026-09-14/).
 
-## 🐦 Character
+That run is incomplete. The base and several animation strips exist, while later animation states, all look-direction rows, final atlas assembly, and final validation remain unfinished. There is no release-ready sprite sheet yet. See [`RECONCILIATION.md`](RECONCILIATION.md) for the machine-wide inventory and merge decisions.
 
-**"Good Golly He's Gully"** is a thugged-out beach bum seagull who:
-- Always wears dark sunglasses (occasionally peeks over with bloodshot eyes)
-- Sports a thick gold chain with illuminati pyramid eye pendant
-- Holds a rum and coke in one wing
-- Slowly smokes a joint (subtle, goes out periodically)
-- Has a confident smirk and laid-back beach personality
-- Embodies the "Really Long Beach" seagull aesthetic
+## Character and animation
 
-## 🎨 Features
+The latest canonical design reference is `pets/gully/generation/2026-09-14/references/canonical-base.png`. The v2 row order and frame counts are recorded in [`pets/gully/pet.json`](pets/gully/pet.json). The full generation brief and per-state prompts are in the generation run archive.
 
-- **5 Animation States**: Idle, Working, Needs Input, Blocked, Success
-- **Pixel Art Style**: 64x64px base with Jeopardish color palette
-- **Reactive**: Responds to Codex agent activity in real-time
-- **Beach Vibes**: Laid-back personality with surf slang and casual reactions
-- **High Contrast**: Optimized for dark UI compatibility
+## Repository contents
 
-## 📦 Installation
+- `pets/gully/pet.json` — current v2 pet and atlas metadata.
+- `pets/gully/GULLY_LORE.md` — character background.
+- `pets/gully/art-prompts.md` — original prompt set, retained as historical material.
+- `pets/gully/generation/2026-09-14/` — source references, prompts, generated rows, and intermediate QA from the latest run.
+- `pets/gully/archive/` — older, incomplete art preserved for provenance; these files are not final sprite assets.
+- `scripts/` — original prototype helpers. Their 8×9 assumptions are historical and they do not validate or assemble the current v2 format.
 
-### Prerequisites
+## Continuing the work
 
-- **ImageMagick** (for sprite assembly): `brew install imagemagick`
-- **Codex desktop app** (for pet usage)
-- **AI image generation access** (DALL-E, Midjourney, or similar)
+Use the archived run as the starting point and continue from the first pending generation job. Follow the current Work Pets sprite-sheet workflow for frame extraction, row review, v2 assembly, direction checks, and final validation. Do not install or publish a sprite sheet until the complete v2 atlas passes those checks.
 
-### Quick Start Workflow
+The older `npm run full-workflow` command describes the prototype workflow and is not a current v2 release pipeline.
 
-```bash
-# Clone this repository
-git clone https://github.com/AlexBaldman/gully-codex-pet.git
-cd gully-codex-pet
+## JeoPARODY connection
 
-# Run the complete workflow (if you have the sprite sheet ready)
-npm run full-workflow
+JeoPARODY has a related Gully host-image brief in its own repository. That directory currently contains documentation but no Gully runtime images. Keep the game-host assets coordinated with this character design when those images are generated.
 
-# Or step-by-step:
-npm run generate    # Get prompts for AI generation
-npm run assemble    # Assemble frames into sprite sheet
-npm run validate    # Validate technical requirements
-npm run install-pet # Install to Codex
-npm run test        # Test the installation
-```
+## License
 
-### Manual Install (If You Have the Sprite Sheet)
-
-```bash
-# Copy to Codex pets directory
-mkdir -p ~/.codex/pets
-cp -R pets/gully ~/.codex/pets/
-
-# Open Codex, go to Settings > Pets, click Refresh, and select Gully
-```
-
-### Activate in Codex
-
-Once installed:
-1. Open Codex desktop app
-2. Go to Settings > Pets  
-3. Click "Refresh" to detect new pets
-4. Select "Good Golly He's Gully"
-5. Type `/pet` to wake your companion
-
-## 🎯 Animation States
-
-| State | Description | Trigger |
-|-------|-------------|---------|
-| **Idle** | Relaxed standing, sunglasses on, subtle smoking | No active tasks |
-| **Working** | Dynamic pose, active smoking, alert | Agent running tasks |
-| **Needs Input** | Leaning forward, sunglasses down, questioning | Waiting for user approval |
-| **Blocked** | Frustrated, drooped wings, joint out | Error or failure |
-| **Success** | Celebratory, wings spread, toast | Task completed successfully |
-
-## 🎨 Art Style
-
-- **Base**: Pixel art matching Jeopardish aesthetic
-- **Size**: 64x64px base, scalable to 128px
-- **Palette**: Jeopardish colors (blue #123b8d, pink #ff25b8, cyan #72e4d2, yellow #fff66e)
-- **Format**: 8x9 sprite sheet (1536x1872px total)
-- **Background**: Chroma-key green (#00FF00)
-
-## 🎭 Personality
-
-Gully responds with beach bum slang and laid-back reactions:
-- **Correct answers**: "Right on, dude!", "That's righteous!"
-- **Incorrect**: "Bummer, man.", "That's bogus, dude."  
-- **Streaks**: "You're on fire, like my joint!", "Keep riding that wave!"
-- **Timeouts**: "Time's up, bro. The answer was..."
-
-## 🔧 Development
-
-### Quick Start Workflow
-
-```bash
-# 1. Generate character art using AI tools
-npm run generate
-
-# 2. Assemble individual frames into sprite sheet
-npm run assemble
-
-# 3. Validate the sprite sheet meets requirements
-npm run validate
-
-# 4. Install pet to Codex
-npm run install-pet
-
-# 5. Test the installation
-npm run test
-
-# Or run the complete workflow:
-npm run full-workflow
-```
-
-### Character Art Generation
-
-See `pets/gully/art-prompts.md` for detailed prompts to generate Gully's character art using AI image generation tools. The prompts are optimized for:
-- **DALL-E 3** - Maximum detail and character accuracy
-- **Midjourney** - Artistic style and aesthetic control
-- **Stable Diffusion** - Technical precision and local generation
-
-### File Structure
-
-```
-gully-codex-pet/
-├── pets/
-│   └── gully/
-│       ├── pet.json              # Pet configuration
-│       ├── gully-spritesheet.png # Animation sprite sheet (to be generated)
-│       ├── art-prompts.md        # Enhanced generation prompts with full character vision
-│       ├── GULLY_LORE.md         # Complete character backstory and narrative
-│       ├── INSTALLATION_GUIDE.md # Detailed setup instructions
-│       └── IMPLEMENTATION_SUMMARY.md # Technical overview
-├── scripts/
-│   ├── generate-gully.sh        # Generation workflow helper
-│   ├── assemble-spritesheet.sh  # Sprite sheet assembly automation
-│   ├── validate-spritesheet.sh  # Technical validation
-│   ├── install-pet.sh           # Installation automation
-│   └── test-pet.sh              # Installation testing
-├── README.md
-├── CONTRIBUTING.md
-├── LICENSE
-└── .gitignore
-```
-
-### Technical Specs
-
-- **Sprite Sheet**: 8 columns × 9 rows, 192×208px cells
-- **Animation Speed**: Configurable per state (150-400ms)
-- **Performance**: Optimized for low CPU usage
-- **Accessibility**: Respects reduced motion settings
-
-## 🤝 Integration
-
-### JeoPARODY Integration
-
-Gully is also available as a host personality in JeoPARODY:
-- See `jeoparody-integration.md` for setup
-- Uses same character design with higher resolution
-- Supports game-specific reactions and mood system
-
-## 📝 License
-
-MIT License - See [LICENSE](LICENSE) file for details
-
-## 🙏 Attribution
-
-- **Character Design**: Inspired by Really Long Beach seagull and Jeopardish aesthetic
-- **Art Style**: Pixel art based on provided seagull sprite references
-- **Pet System**: Built for OpenAI Codex using hatch-pet skill format
-
-## 🐛 Troubleshooting
-
-**Pet doesn't appear?**
-- Ensure files are in `~/.codex/pets/gully/`
-- Refresh pets in Codex Settings
-- Restart Codex if needed
-
-**Animations look wrong?**
-- Verify sprite sheet dimensions (1536×1872px)
-- Check chroma-key background (#00FF00)
-- Validate unused cells are transparent
-
-**Content policy issues?**
-- The joint element may trigger filters - see art-prompts.md for alternatives
-
-## 🚀 Roadmap
-
-- [ ] Add additional animation states
-- [ ] Create sound effects for different states  
-- [ ] Develop Gully variants (different beach accessories)
-- [ ] Add seasonal accessories (sunglasses, winter gear)
-- [ ] Community submission to Petdex gallery
-
-## 📞 Support
-
-- **Issues**: Open an issue on GitHub
-- **Discussions**: Use GitHub Discussions for questions
-- **Community**: Join the Petdex Discord for pet-related chat
-
----
-
-Made with 🏖️ beach vibes and pixel art love
+MIT. See [`LICENSE`](LICENSE).

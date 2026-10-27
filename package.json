@@ -36,9 +36,11 @@
   "pet": {
     "name": "Good Golly He's Gully",
     "style": "pixel",
-    "states": 5,
+    "states": 9,
     "format": "spritesheet",
-    "grid": "8x9",
-    "cellSize": "192x208"
+    "grid": "8x11",
+    "cellSize": "192x208",
+    "lookDirections": 16,
+    "spriteVersion": 2
   }
 }

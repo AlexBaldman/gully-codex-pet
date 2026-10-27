@@ -1,0 +1,25 @@
+{
+  "ok": true,
+  "chroma_key": {
+    "hex": "#00FF00",
+    "rgb": [
+      0,
+      255,
+      0
+    ],
+    "threshold": 96.0
+  },
+  "rows": [
+    {
+      "state": "jumping",
+      "frames": [
+        "/Users/alex/Documents/Codex/2026-09-13/i-want-to-edit-and-customize/work/gully-pet-run/qa/rows/jumping/frames/jumping/00.png",
+        "/Users/alex/Documents/Codex/2026-09-13/i-want-to-edit-and-customize/work/gully-pet-run/qa/rows/jumping/frames/jumping/01.png",
+        "/Users/alex/Documents/Codex/2026-09-13/i-want-to-edit-and-customize/work/gully-pet-run/qa/rows/jumping/frames/jumping/02.png",
+        "/Users/alex/Documents/Codex/2026-09-13/i-want-to-edit-and-customize/work/gully-pet-run/qa/rows/jumping/frames/jumping/03.png",
+        "/Users/alex/Documents/Codex/2026-09-13/i-want-to-edit-and-customize/work/gully-pet-run/qa/rows/jumping/frames/jumping/04.png"
+      ],
+      "method": "components"
+    }
+  ]
+}
