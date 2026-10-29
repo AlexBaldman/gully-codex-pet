@@ -15,16 +15,16 @@ test('validator accepts the atlas and rejects checksum-only corruption and trunc
   const root = mkdtempSync(resolve(tmpdir(), 'gully-validation-'));
   try {
     mkdirSync(resolve(root, 'scripts'));
-    mkdirSync(resolve(root, 'pets/gully'), { recursive: true });
+    mkdirSync(resolve(root, 'prototypes/procedural-v1'), { recursive: true });
     for (const name of ['build-gully.mjs', 'validate-pet.mjs']) {
       copyFileSync(fileURLToPath(new URL('../scripts/' + name, import.meta.url)), resolve(root, 'scripts', name));
     }
-    writeFileSync(resolve(root, 'pets/gully/pet.json'), JSON.stringify({
-      id: 'gully', displayName: 'Gully', description: 'Test', spritesheetPath: 'spritesheet.png'
+    writeFileSync(resolve(root, 'prototypes/procedural-v1/pet.json'), JSON.stringify({
+      id: 'gully-prototype', displayName: 'Gully', description: 'Test', spritesheetPath: 'spritesheet.png'
     }));
     const { png } = createAtlas();
     const validate = bytes => {
-      writeFileSync(resolve(root, 'pets/gully/spritesheet.png'), bytes);
+      writeFileSync(resolve(root, 'prototypes/procedural-v1/spritesheet.png'), bytes);
       return spawnSync(process.execPath, [resolve(root, 'scripts/validate-pet.mjs')], { encoding: 'utf8' });
     };
     assert.equal(validate(png).status, 0);

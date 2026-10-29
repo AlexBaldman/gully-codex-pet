@@ -187,6 +187,6 @@ export async function build(dest){
 }
 const self=fileURLToPath(import.meta.url);
 if(process.argv[1] && resolve(process.argv[1])===self){
-  const dest=resolve(dirname(self),'../pets/gully/spritesheet.png');
+  const dest=resolve(dirname(self),'../prototypes/procedural-v1/spritesheet.png');
   const result=await build(dest);console.log(`🐦 Gully hatched: ${result.dest} (${result.bytes} bytes, ${WIDTH}x${HEIGHT}, 9 states)`);
 }

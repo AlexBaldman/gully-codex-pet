@@ -1,17 +1,17 @@
-# SPRITE SHEET PLACEHOLDER
+# SPRITE SHEET STATUS
 
-This file will be replaced with the actual Gully sprite sheet once generated.
+No release-ready Gully sprite sheet is available yet. The previous 8×9 plan in this placeholder was superseded by the v2 layout in `pet.json`.
 
 ## Generation Instructions
 
-1. Use the prompts in `art-prompts.md` to generate character art in Codex
-2. Assemble frames into an 8x9 sprite sheet using hatch-pet skill
-3. Replace this placeholder file with `gully-spritesheet.png`
-4. The sprite sheet should be 1536x1872 pixels (8 columns × 9 rows, 192×208px cells)
+1. Continue the preserved run under `generation/2026-09-14/`.
+2. Finish all nine animation rows and sixteen look directions.
+3. Assemble and validate the v2 sprite sheet using the current Work Pets workflow.
+4. Add `gully-spritesheet.png` only after final validation. The v2 dimensions are 1536×2288 pixels (8 columns × 11 rows, 192×208px cells).
 
 ## Current Status
 
-🔲 **AWAITING GENERATION** - Character art not yet generated
+🟡 **IN PROGRESS** - Base art and several animation strips exist, but the v2 sheet is incomplete and has not passed final validation. See `../../RECONCILIATION.md` and `generation/2026-09-14/README.md`.
 
 ## Once Generated
 

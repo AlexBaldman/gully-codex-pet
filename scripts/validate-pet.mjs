@@ -5,10 +5,10 @@ import { inflateSync } from 'node:zlib';
 import { ROWS, WIDTH, HEIGHT, CELL, crc32 } from './build-gully.mjs';
 
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
-const config=JSON.parse(readFileSync(resolve(root,'pets/gully/pet.json'),'utf8'));
-const file=resolve(root,'pets/gully',config.spritesheetPath ?? '');
+const config=JSON.parse(readFileSync(resolve(root,'prototypes/procedural-v1/pet.json'),'utf8'));
+const file=resolve(root,'prototypes/procedural-v1',config.spritesheetPath ?? '');
 function ensure(ok,message){if(!ok)throw Error(`❌ ${message}`);}
-ensure(config.id==='gully','pet ID must be gully');
+ensure(config.id==='gully-prototype','prototype ID must be gully-prototype');
 ensure(config.displayName && config.description,'displayName and description required');
 ensure(config.spritesheetPath==='spritesheet.png','manifest must point to generated sprite');
 const png=readFileSync(file);
@@ -43,4 +43,4 @@ for(let y=0;y<HEIGHT;y++){
 for(let row=0;row<ROWS.length;row++)for(let col=0;col<8;col++){
   ensure(occupied[row][col]===(col<ROWS[row][1]),`Row ${row} cell ${col}: incorrect opacity`);
 }
-console.log(`✅ Codex-ready Gully: ${WIDTH}x${HEIGHT}, ${ROWS.reduce((n,row)=>n+row[1],0)} animated cells across 9 states, transparent empty slots`);
+console.log(`✅ Procedural prototype validated: ${WIDTH}x${HEIGHT}, ${ROWS.reduce((n,row)=>n+row[1],0)} animated cells across 9 states, transparent empty slots`);

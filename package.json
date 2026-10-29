@@ -1,20 +1,49 @@
 {
   "name": "gully-codex-pet",
-  "version": "2.0.0",
-  "private": true,
-  "type": "module",
-  "description": "Good Golly He's Gully – a working Codex pet with an animated neon-beach preview",
-  "engines": { "node": ">=20" },
+  "version": "1.0.0",
+  "description": "Good Golly He's Gully - A thugged-out beach bum seagull companion for OpenAI Codex",
+  "main": "pets/gully/pet.json",
   "scripts": {
-    "build": "node scripts/build-gully.mjs",
-    "generate": "npm run build",
-    "assemble": "npm run build",
-    "validate": "node scripts/validate-pet.mjs",
-    "install-pet": "node scripts/install-pet.mjs",
-    "preview": "node scripts/preview-server.mjs",
-    "test": "node --test",
-    "full-workflow": "npm run build && npm run validate && npm run install-pet && npm test"
+    "build:prototype": "node scripts/build-gully.mjs",
+    "validate:prototype": "node scripts/validate-pet.mjs",
+    "preview:prototype": "node scripts/preview-server.mjs",
+    "install:prototype": "node scripts/install-pet.mjs",
+    "test": "node --test"
   },
+  "keywords": [
+    "codex",
+    "pet",
+    "seagull",
+    "pixel-art",
+    "animated",
+    "desktop-companion",
+    "beach-bum",
+    "long-beach",
+    "90s-nostalgia"
+  ],
+  "author": "Alex Baldman",
   "license": "MIT",
-  "repository": "https://github.com/AlexBaldman/gully-codex-pet"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AlexBaldman/gully-codex-pet.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AlexBaldman/gully-codex-pet/issues"
+  },
+  "homepage": "https://github.com/AlexBaldman/gully-codex-pet#readme",
+  "pet": {
+    "name": "Good Golly He's Gully",
+    "style": "pixel",
+    "states": 9,
+    "format": "spritesheet",
+    "grid": "8x11",
+    "cellSize": "192x208",
+    "lookDirections": 16,
+    "spriteVersion": 2
+  },
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  }
 }

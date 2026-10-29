@@ -4,11 +4,11 @@ import { dirname,resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { build } from './build-gully.mjs';
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
-await build(resolve(root,'pets/gully/spritesheet.png'));
+await build(resolve(root,'prototypes/procedural-v1/spritesheet.png'));
 const routes = {
   '/': ['preview/index.html','text/html; charset=utf-8'],
-  '/spritesheet.png':['pets/gully/spritesheet.png','image/png'],
-  '/pet.json':['pets/gully/pet.json','application/json'],
+  '/spritesheet.png':['prototypes/procedural-v1/spritesheet.png','image/png'],
+  '/pet.json':['prototypes/procedural-v1/pet.json','application/json'],
 };
 const port=Number(process.env.PORT || 4173);
 const server=createServer(async(req,res)=>{

@@ -1,5 +1,26 @@
-node_modules/
+# Final sprite sheets stay out of Git until the complete atlas is ready to publish.
+pets/gully/gully-spritesheet.png
+pets/gully/gully-spritesheet.webp
+# Older camera-themed base remains in the working tree; its preserved copy is in archive/.
+pets/gully/gully-base-character.png
+
+# OS files
 .DS_Store
-pets/gully/spritesheet.png
-pets/gully/generated/
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+
+# Generated procedural preview only
+node_modules/
+prototypes/procedural-v1/spritesheet.png
+.build/
 coverage/
