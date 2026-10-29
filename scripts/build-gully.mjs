@@ -150,7 +150,7 @@ export function drawFrame(row, frame) {
   return p.px;
 }
 
-function crc32(data){
+export function crc32(data){
   let crc=0xffffffff;
   for(const byte of data){crc^=byte;for(let j=0;j<8;j++)crc=(crc>>>1)^((crc&1)?0xedb88320:0);}
   return (crc^0xffffffff)>>>0;

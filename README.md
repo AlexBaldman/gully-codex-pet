@@ -4,17 +4,19 @@
 
 ![Gully animated showcase — nine-state pixel-art pet](assets/gully-showcase.gif)
 
-Devin's original concept, personality, and lore remain in `pets/gully/`. This upgrade replaces the placeholder sprite art and broken install assumptions with a deterministic, dependency-free **nine-state / 57-frame** animated atlas, a neon beach preview, real package validation, and a cross-platform installer.
+The original character concept, personality, and lore remain in `pets/gully/`. This upgrade replaces the placeholder sprite art and broken install assumptions with a deterministic, dependency-free **nine-state / 57-frame** animated atlas, a neon beach preview, real package validation, and a cross-platform installer.
 
 ## Quick start (Node.js 20+)
 
 ```bash
-git clone https://github.com/AlexBaldman/gully-codex-pet.git
+git clone --branch feat/gully-functional-pet https://github.com/AlexBaldman/gully-codex-pet.git
 cd gully-codex-pet
 npm run preview
 ```
 
 Open **http://127.0.0.1:4173**. Click any of the nine states, press `1`–`9`, pause, or download the complete transparent sprite sheet. The preview automatically generates the sprite asset on startup. No image API keys, ImageMagick, dependencies, or external services required.
+
+Until PR #1 merges, the functional package is on `feat/gully-functional-pet`; cloning the default branch does not select it.
 
 ## Install in Codex
 
