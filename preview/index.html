@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0d102b">
+<title>GULLY // The Unpaid Beach Intern</title>
+<style>
+:root{color-scheme:dark;--ink:#0d102b;--cyan:#72e4d2;--pink:#ff25b8;--sun:#fff66e;--muted:#aaa9c6}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% -20%,#2e1e59 0%,transparent 60%),var(--ink);color:#fff9e9;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.2;background:repeating-linear-gradient(0deg,transparent,transparent 3px,#080818 4px);z-index:10}
+.app{max-width:1160px;margin:auto;padding:32px 24px 70px}.top{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;border-bottom:1px solid #555073;padding-bottom:18px}
+.logo{letter-spacing:.15em;font-size:12px;font-weight:900;color:var(--cyan)}.logo span{color:var(--pink)}.live{display:flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.14em;color:var(--muted)}.dot{width:8px;height:8px;background:#5fe6bb;box-shadow:0 0 16px #5fe6bb;border-radius:100%}
+h1{font-family:Impact,Haettenschweiler,'Arial Narrow Bold',sans-serif;font-stretch:condensed;font-size:clamp(70px,13vw,160px);letter-spacing:.025em;line-height:.8;margin:34px 0 18px;text-shadow:6px 7px 0 #1b1747}h1 span{color:var(--sun)}
+.sub{font-size:clamp(12px,1.4vw,17px);color:#cac7de;margin:0 0 26px;line-height:1.7}.sub em{font-style:normal;color:var(--pink)}
+.layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(295px,1fr);gap:22px;align-items:stretch}
+.stage{position:relative;display:grid;place-items:center;min-height:475px;overflow:hidden;isolation:isolate;background:linear-gradient(180deg,#312267 0%,#854582 33%,#e98b87 57%,#f6c071 59%,#5bc9c5 60%,#156998 82%,#0a375b 100%);border:2px solid #5a577c;border-radius:18px;box-shadow:0 22px 80px #0009}
+.sun{position:absolute;top:13%;width:152px;height:152px;border-radius:50%;background:linear-gradient(180deg,#ffdf85,#fd6aa3);box-shadow:0 0 70px #ff9bc344;z-index:-1}
+.horizon{position:absolute;inset:60% 0 auto;height:2px;background:#ffd8aa85}.stage:after{content:"";position:absolute;left:0;right:0;bottom:0;height:27%;background:repeating-linear-gradient(-12deg,transparent,transparent 21px,#6fe2d115 22px,#6fe2d115 27px);pointer-events:none}
+.pet-wrap{width:192px;height:208px;position:relative;transform:scale(1.7);filter:drop-shadow(0 14px 0 #17224a44);image-rendering:pixelated}
+#pet{width:192px;height:208px;background-image:url('/spritesheet.png');background-repeat:no-repeat;background-position:0 0;image-rendering:pixelated}
+.stage-label{position:absolute;top:15px;left:18px;font-size:11px;letter-spacing:.16em;font-weight:800;background:#0d102b99;padding:9px 12px;border:1px solid #ffffff33;border-radius:6px}
+.stage-mark{position:absolute;bottom:17px;right:19px;color:#e7ffffbd;font-size:11px;letter-spacing:.1em}
+.panel{border:1px solid #4c476e;background:#1b1b3d;border-radius:18px;padding:24px;display:flex;flex-direction:column;min-height:475px;box-shadow:0 22px 60px #0005}
+.kicker{font-size:10px;letter-spacing:.18em;color:var(--cyan);font-weight:900}.panel h2{margin:10px 0 9px;font-size:24px;line-height:1.2}.desc{color:#c7c3df;font-size:13px;line-height:1.7;min-height:44px;margin:0 0 18px}
+.states{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-bottom:18px}
+button{font:inherit;cursor:pointer;color:#c9c9df;background:#252448;border:1px solid #565175;border-radius:9px;min-height:46px;padding:9px 4px;font-size:12px;transition:background .15s,border-color .15s,transform .15s}
+button:hover{transform:translateY(-2px);background:#3c315c;border-color:var(--pink)}button:focus-visible{outline:3px solid var(--cyan);outline-offset:2px}
+button[aria-pressed=true]{background:var(--pink);color:#180b2e;border-color:var(--pink);font-weight:900;box-shadow:0 0 22px #ff25b830}
+.controls{margin-top:auto;border-top:1px solid #3e3a5d;padding-top:18px;display:flex;gap:10px;align-items:center}
+#toggle{background:var(--cyan);border-color:var(--cyan);color:#0e253b;font-weight:900;padding:0 18px;flex:1}#reset{padding:0 16px}#framecount{min-width:72px;text-align:right;font-size:11px;color:#c6c6df}
+.bottom{display:flex;gap:18px;flex-wrap:wrap;justify-content:space-between;align-items:center;margin:24px 2px;color:#bab4d1;font-size:11px;line-height:1.8}.bottom a{color:var(--cyan)}.bottom strong{color:var(--sun)}
+@media(max-width:760px){.layout{grid-template-columns:1fr}.stage{min-height:410px}.pet-wrap{transform:scale(1.45)}.panel{min-height:0}.states{grid-template-columns:repeat(3,minmax(0,1fr))}h1{margin-top:24px}}
+@media(prefers-reduced-motion:reduce){button{transition:none}button:hover{transform:none}}
+</style>
+</head>
+<body><p style="text-align:center;color:#ffd75d;padding:12px">Procedural prototype · canonical v2 artwork remains in progress.</p>
+<main class="app">
+  <header class="top"><div class="logo">GOOD GOLLY <span>//</span> GULLY</div><div class="live"><i class="dot" aria-hidden="true"></i> CODEX PET · LIVE PIXEL LAB</div></header>
+  <h1>HE'S <span>GULLY.</span></h1>
+  <p class="sub">Your beachside code supervisor. <em>Unlicensed. Unbothered. Unreasonably confident.</em></p>
+  <div class="layout">
+    <section class="stage" aria-label="Animated Gully character preview"><div class="sun" aria-hidden="true"></div><div class="horizon" aria-hidden="true"></div><div class="stage-label">GULLY_CAM // <span id="state-code">IDLE</span></div><div class="pet-wrap"><div id="pet" role="img" aria-label="Gully, a pixel art seagull with sunglasses, a gold chain and a drink"></div></div><div class="stage-mark">REALLY LONG BEACH · 199X</div></section>
+    <section class="panel"><span class="kicker">ANIMATION CONTROL ROOM</span><h2 id="name">01 / Off the clock</h2><p class="desc" id="description">He's contemplating an honest day's work. Briefly.</p><div class="states" id="states" role="group" aria-label="Choose animation"></div><div class="controls"><button id="toggle" type="button">Ⅱ PAUSE</button><button id="reset" type="button">↻ RESET</button><span id="framecount" aria-live="off">01 / 06</span></div></section>
+  </div>
+  <footer class="bottom"><span><strong>9 REAL STATES · 57 FRAMES</strong> · transparent Codex atlas · no APIs or dependencies</span><span>Keyboard: <strong>1–9</strong> switch states · <a href="/spritesheet.png" download="gully-spritesheet.png">Download atlas</a> · <a href="/pet.json" download>Manifest</a></span></footer>
+</main>
+<script>
+const states=[
+ ['idle','Off the clock','He’s contemplating an honest day’s work. Briefly.',6,205],
+ ['running-right','Cruising →','Management has asked Gully to move. He objects on principle.',8,120],
+ ['running-left','← Cruising','Forgot the drink. Whole trip’s a write-off.',8,120],
+ ['waving','Greetings, boss','He’s saying hello. The invoice will follow.',4,160],
+ ['jumping','Beach victory','A celebration wildly disproportionate to the commit.',5,170],
+ ['failed','Major bummer','The build broke. Gully is taking personal leave.',8,210],
+ ['waiting','Needs your input','An important approval is required. He’s in no hurry.',6,240],
+ ['running','Pretending to work','He has mastered the appearance of productivity.',6,150],
+ ['review','Code review','Several very serious opinions. Almost none are technical.',6,200]
+];
+const stage=document.getElementById('pet'),menu=document.getElementById('states'),toggle=document.getElementById('toggle');
+const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+let row=0,frame=0,playing=!reduced.matches,timer;
+function render(){
+ stage.style.backgroundPosition=`-${frame*192}px -${row*208}px`;
+ document.getElementById('framecount').textContent=`${String(frame+1).padStart(2,'0')} / ${String(states[row][3]).padStart(2,'0')}`;
+}
+function schedule(){clearInterval(timer);if(playing)timer=setInterval(()=>{frame=(frame+1)%states[row][3];render()},states[row][4]);toggle.textContent=playing?'Ⅱ PAUSE':'▶ PLAY';toggle.setAttribute('aria-pressed',String(!playing));}
+function select(next){
+ row=next;frame=0;const s=states[row];document.getElementById('name').textContent=`${String(row+1).padStart(2,'0')} / ${s[1]}`;
+ document.getElementById('description').textContent=s[2];document.getElementById('state-code').textContent=s[0].toUpperCase();
+ [...menu.children].forEach((b,i)=>b.setAttribute('aria-pressed',String(i===row)));
+ render();schedule();
+}
+states.forEach((s,i)=>{const b=document.createElement('button');b.type='button';b.textContent=`${i+1} · ${s[0].replace('running-right','right').replace('running-left','left')}`;b.addEventListener('click',()=>select(i));menu.append(b)});
+toggle.addEventListener('click',()=>{playing=!playing;schedule()});
+document.getElementById('reset').addEventListener('click',()=>select(0));
+window.addEventListener('keydown',e=>{if(e.altKey||e.ctrlKey||e.metaKey)return;const n=Number(e.key);if(n>=1&&n<=9)select(n-1)});
+reduced.addEventListener('change',e=>{playing=!e.matches;frame=0;render();schedule()});
+select(0);
+</script>
+</body></html>

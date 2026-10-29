@@ -4,13 +4,11 @@
   "description": "Good Golly He's Gully - A thugged-out beach bum seagull companion for OpenAI Codex",
   "main": "pets/gully/pet.json",
   "scripts": {
-    "install": "mkdir -p ~/.codex/pets && cp -R pets/gully ~/.codex/pets/",
-    "generate": "./scripts/generate-gully.sh",
-    "assemble": "./scripts/assemble-spritesheet.sh",
-    "validate": "./scripts/validate-spritesheet.sh",
-    "install-pet": "./scripts/install-pet.sh",
-    "test": "./scripts/test-pet.sh",
-    "full-workflow": "./scripts/generate-gully.sh && ./scripts/assemble-spritesheet.sh && ./scripts/validate-spritesheet.sh && ./scripts/install-pet.sh && ./scripts/test-pet.sh"
+    "build:prototype": "node scripts/build-gully.mjs",
+    "validate:prototype": "node scripts/validate-pet.mjs",
+    "preview:prototype": "node scripts/preview-server.mjs",
+    "install:prototype": "node scripts/install-pet.mjs",
+    "test": "node --test"
   },
   "keywords": [
     "codex",
@@ -42,5 +40,10 @@
     "cellSize": "192x208",
     "lookDirections": 16,
     "spriteVersion": 2
+  },
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=20"
   }
 }

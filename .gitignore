@@ -18,3 +18,9 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.temp
+
+# Generated procedural preview only
+node_modules/
+prototypes/procedural-v1/spritesheet.png
+.build/
+coverage/

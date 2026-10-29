@@ -1,0 +1,26 @@
+name: Gully atlas checks
+on:
+  push:
+    branches: [main, 'feat/**']
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm run build:prototype
+      - run: npm run validate:prototype
+      - run: npm test
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gully-procedural-prototype
+          path: |
+            prototypes/procedural-v1/pet.json
+            prototypes/procedural-v1/spritesheet.png
